@@ -5,7 +5,7 @@
 // DEĞİŞTİRMENE GEREK YOK.
 //
 // Örnek:
- const BACKEND_HOST = "xoch.onrender.com";
+ // const BACKEND_HOST = "xoch.onrender.com";
 
 const BACKEND_HOST = "127.0.0.1:8000"; // <-- deploy ettikten sonra burayı değiştir
 const BACKEND_IS_SECURE = true; // Render/Railway gibi yerlerde true yap (https/wss)
