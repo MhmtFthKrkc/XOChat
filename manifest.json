@@ -1,0 +1,14 @@
+{
+  "name": "Kendi Sohbetim",
+  "short_name": "Sohbet",
+  "description": "Arkadaş grubu için kişisel sohbet uygulaması",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#16211C",
+  "theme_color": "#16211C",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

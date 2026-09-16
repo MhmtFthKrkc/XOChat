@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap');
+
+:root{
+  --bg: #16211C;
+  --paper: #F2ECDD;
+  --paper-dim: #E8E0CB;
+  --ink: #1F2A24;
+  --ink-soft: #566058;
+  --mustard: #D8A93D;
+  --mustard-dark: #B8892A;
+  --teal: #4C7A73;
+  --line: #cfc6ab;
+  --error: #c0392b;
+}
+
+*{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body{ height: 100%; margin: 0; }
+body{
+  background: var(--bg);
+  font-family: 'Source Serif 4', serif;
+  color: var(--ink);
+  overscroll-behavior: none;
+}
+
+.screen{
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hidden{ display: none !important; }
+
+/* ---------- Giriş / kayıt ---------- */
+.auth-card{
+  width: 100%;
+  max-width: 360px;
+  background: var(--paper);
+  border-radius: 20px;
+  padding: 32px 26px;
+  margin: 20px;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
+}
+.auth-card h1{
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  margin: 0 0 4px;
+  text-align: center;
+}
+.subtitle{
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 13.5px;
+  margin: 0 0 20px;
+}
+.tabs{
+  display: flex;
+  background: var(--paper-dim);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 18px;
+}
+.tab{
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 9px 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink-soft);
+  border-radius: 9px;
+  cursor: pointer;
+}
+.tab.active{
+  background: var(--bg);
+  color: var(--paper);
+}
+.auth-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.auth-form input{
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  outline: none;
+}
+.auth-form input:focus{ border-color: var(--teal); }
+.auth-form button{
+  background: var(--mustard);
+  color: #2b2005;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 14.5px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+.auth-form button:hover{ background: var(--mustard-dark); }
+.auth-form button:disabled{ background: #b9b198; cursor: not-allowed; }
+
+.error{
+  margin-top: 14px;
+  background: #fbeceb;
+  color: var(--error);
+  border: 1px solid #eac6c2;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  text-align: center;
+}
+.hint{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* ---------- Sohbet ekranı ---------- */
+.app{
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-width: 480px;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.head{
+  background: var(--bg);
+  color: var(--paper);
+  padding: 14px 18px;
+  padding-top: max(14px, env(safe-area-inset-top));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Space Grotesk', sans-serif;
+  flex-shrink: 0;
+}
+.head-left{ display: flex; align-items: baseline; gap: 8px; }
+.head h1{ margin: 0; font-size: 18px; font-weight: 600; }
+.count{ font-size: 11.5px; color: #9fae9f; }
+.head-right{ display: flex; gap: 6px; }
+.head-right button{
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: var(--paper);
+}
+.head-right button:hover{ background: rgba(255,255,255,0.1); }
+
+.thread{
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.row{ display: flex; flex-direction: column; max-width: 78%; }
+.row.mine{ align-self: flex-end; align-items: flex-end; }
+.row.theirs{ align-self: flex-start; align-items: flex-start; }
+.row.system{ align-self: center; max-width: 90%; }
+
+.meta{
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+  padding: 0 4px;
+}
+.bubble{
+  padding: 9px 13px;
+  border-radius: 14px;
+  line-height: 1.45;
+  font-size: 15.5px;
+  word-wrap: break-word;
+}
+.row.mine .bubble{
+  background: var(--mustard);
+  color: #2b2005;
+  border-bottom-right-radius: 4px;
+}
+.row.theirs .bubble{
+  background: #fff;
+  border: 1px solid var(--line);
+  border-bottom-left-radius: 4px;
+}
+.row.system .bubble{
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  font-family: 'Space Grotesk', sans-serif;
+  text-align: center;
+  padding: 2px 8px;
+}
+
+.empty{
+  margin: auto;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 14px;
+  max-width: 220px;
+  line-height: 1.5;
+}
+
+.status{
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: var(--ink-soft);
+  text-align: center;
+  padding: 2px 0;
+  min-height: 14px;
+}
+
+.composer{
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line);
+  background: var(--paper-dim);
+  flex-shrink: 0;
+}
+.composer input{
+  flex: 1;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 22px;
+  padding: 11px 16px;
+  font-family: 'Source Serif 4', serif;
+  font-size: 15px;
+  outline: none;
+}
+.composer input:focus{ border-color: var(--teal); }
+.composer button{
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 0 20px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.composer button:disabled{ background: #aab7ac; cursor: not-allowed; }
+
+/* ---------- Kurulum banner'ı ---------- */
+.install-banner{
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  background: var(--bg);
+  color: var(--paper);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 50;
+}
+.install-banner span{ flex: 1; }
+.install-banner button{
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+#installBtn{ background: var(--mustard); color: #2b2005; }
+#installDismiss{ background: transparent; color: var(--paper); font-size: 16px; padding: 4px 8px; }

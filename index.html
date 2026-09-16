@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#16211C">
+<title>Kendi Sohbetim</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ---------- GİRİŞ / KAYIT EKRANI ---------- -->
+<div id="authScreen" class="screen">
+  <div class="auth-card">
+    <h1>Kendi Sohbetim</h1>
+    <p class="subtitle">Arkadaşlarınla senin kurduğun sunucu üzerinden konuş.</p>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="login">Giriş yap</button>
+      <button class="tab" data-tab="register">Kayıt ol</button>
+    </div>
+
+    <form id="loginForm" class="auth-form">
+      <input type="text" id="loginUsername" placeholder="Kullanıcı adı" autocomplete="username" required>
+      <input type="password" id="loginPassword" placeholder="Şifre" autocomplete="current-password" required>
+      <button type="submit">Giriş yap</button>
+    </form>
+
+    <form id="registerForm" class="auth-form hidden">
+      <input type="text" id="registerUsername" placeholder="Kullanıcı adı (en az 2 karakter)" autocomplete="username" required minlength="2" maxlength="24">
+      <input type="password" id="registerPassword" placeholder="Şifre (en az 4 karakter)" autocomplete="new-password" required minlength="4">
+      <button type="submit">Hesap oluştur</button>
+    </form>
+
+    <div id="authError" class="error hidden"></div>
+    <div id="authHint" class="hint"></div>
+  </div>
+</div>
+
+<!-- ---------- SOHBET EKRANI ---------- -->
+<div id="chatScreen" class="screen hidden">
+  <div class="app">
+    <div class="head">
+      <div class="head-left">
+        <h1 id="roomLabel">Oda</h1>
+        <span class="count" id="onlineLabel"></span>
+      </div>
+      <div class="head-right">
+        <button id="roomBtn" title="Oda değiştir">🚪</button>
+        <button id="logoutBtn" title="Çıkış yap">⏻</button>
+      </div>
+    </div>
+
+    <div class="thread" id="thread">
+      <div class="empty">Henüz mesaj yok.<br>İlk mesajı sen yaz.</div>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <div class="composer">
+      <input id="msgInput" placeholder="Bir şeyler yaz…" autocomplete="off">
+      <button id="sendBtn">Gönder</button>
+    </div>
+  </div>
+</div>
+
+<!-- ---------- KUR / YÜKLE BANNER'I ---------- -->
+<div id="installBanner" class="install-banner hidden">
+  <span>Bunu telefonuna uygulama gibi kurabilirsin.</span>
+  <button id="installBtn">Kur</button>
+  <button id="installDismiss">×</button>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
